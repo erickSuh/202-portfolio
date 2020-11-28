@@ -1,19 +1,16 @@
 /* eslint-disable react/react-in-jsx-scope */
 import Head from 'next/head'
-import styles from '../styles/layout.module.css'
-import eks from '../styles/eks.module.css'
+import styles from '../styles/layout.module.scss'
+import eks from '../styles/eks.module.scss'
 import Link from 'next/link'
+import Header from './Header'
 
-export const siteTitle = 'README_BR'
+export const siteTitle = 'Érick Kenji Sugahara'
 
 export default function Layout({ children, home }: { children: React.ReactNode; home?: boolean }) {
   return (
     <>
-      <header className={eks.header}>
-        <Link href="/">
-          <div className={eks.icon}>{siteTitle}</div>
-        </Link>
-      </header>
+      <Header />
       <div className={`${styles.container}  ${eks.fadeIn}`}>
         <Head>
           <link rel="icon" href="/favicon.ico" />

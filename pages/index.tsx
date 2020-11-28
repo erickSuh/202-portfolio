@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
-import eks from '../styles/eks.module.css'
+import eks from '../styles/eks.module.scss'
 import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import Date from '../components/date'
@@ -39,7 +39,7 @@ export default function Home({
           Últimos posts com text grande para caramba ate estourar essa porra
         </h2>
         <ul className={eks.list}>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, date, title, author, categories }) => (
             <li className={eks.listItem} key={id}>
               <Link href="/posts/[id]" as={`/posts/${id}`}>
                 {title}
@@ -47,6 +47,7 @@ export default function Home({
               <br />
               <small className={eks.lightText}>
                 <Date dateString={date} />
+                {` - by: ${author}${categories ? ` - categories: ${categories}` : ''}`}
               </small>
             </li>
           ))}
