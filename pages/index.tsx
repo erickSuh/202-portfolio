@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import eks from '../styles/eks.module.scss'
-import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
-import Date from '../components/date'
 import { GetStaticProps } from 'next'
+import Layout, { siteTitle } from '../components/layout'
+import Date from '../components/date'
+import { getAllPostsSortedData } from '../lib/posts'
+import eks from '../styles/eks.module.scss'
 
 export default function Home({
   allPostsData,
@@ -13,6 +13,8 @@ export default function Home({
   allPostsData: {
     date: string
     title: string
+    author: string
+    categories: string
     id: string
   }[]
 }) {
@@ -35,14 +37,23 @@ export default function Home({
         </p>
       </section>
       <section className={`${eks.headingMd} ${eks.padding1px} ${eks.fadeIn}`}>
-        <h2 className={eks.headingLg}>
-          Últimos posts com text grande para caramba ate estourar essa porra
-        </h2>
+        <h2 className={eks.headingLg}>Devtools</h2>
+        <ul className={eks.list}>
+          <li className={eks.listItem}>
+            <Link href="/devTools/dateConverter" as={`/devTools/dateConverter`}>
+              <a href={`/devTools/dateConverter`}>Date Converter</a>
+            </Link>
+            <br />
+          </li>
+        </ul>
+      </section>
+      <section className={`${eks.headingMd} ${eks.padding1px} ${eks.fadeIn}`}>
+        <h2 className={eks.headingLg}>Latests posts</h2>
         <ul className={eks.list}>
           {allPostsData.map(({ id, date, title, author, categories }) => (
             <li className={eks.listItem} key={id}>
               <Link href="/posts/[id]" as={`/posts/${id}`}>
-                {title}
+                <a href={`/posts/${id}`}>{title}</a>
               </Link>
               <br />
               <small className={eks.lightText}>
@@ -58,7 +69,7 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData()
+  const allPostsData = getAllPostsSortedData()
   return {
     props: {
       allPostsData,
