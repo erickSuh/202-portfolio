@@ -1,22 +1,20 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import Head from 'next/head'
-import Link from 'next/link'
-import { GetStaticProps } from 'next'
-import Layout, { siteTitle } from '../components/layout'
-import Date from '../components/date'
-import { getAllPostsSortedData } from '../lib/posts'
-import eks from '../styles/eks.module.scss'
+import Head from 'next/head';
+import Link from 'next/link';
+import { GetStaticProps } from 'next';
+import Layout, { siteTitle } from '../components/layout';
+import Date from '../components/date';
+import { getAllPostsSortedData } from '../lib/posts';
+import eks from '../styles/eks.module.scss';
+import { getAllDevtoolsData } from '../lib/devTools';
+import { Post } from '../lib/models';
 
 export default function Home({
   allPostsData,
+  allDevToolsData,
 }: {
-  allPostsData: {
-    date: string
-    title: string
-    author: string
-    categories: string
-    id: string
-  }[]
+  allPostsData: Post[];
+  allDevToolsData: { id: string; title: string }[];
 }) {
   return (
     <Layout home>
@@ -24,7 +22,7 @@ export default function Home({
         <title>{siteTitle}</title>
       </Head>
       <section className={`${eks.headingMd} ${eks.fadeIn}`}>
-        <h1>Welcome to my blog</h1>
+        <h1>Welcome to my developer space</h1>
         <div className={eks.profilePic}>
           <img
             className={eks.profilePic}
@@ -37,14 +35,25 @@ export default function Home({
         </p>
       </section>
       <section className={`${eks.headingMd} ${eks.padding1px} ${eks.fadeIn}`}>
+        <h2 className={eks.headingLg}>
+          <Link href="/about" as={`/about`}>
+            <a href={`/about`}>About Me</a>
+          </Link>
+        </h2>
+      </section>
+      <section className={`${eks.headingMd} ${eks.padding1px} ${eks.fadeIn}`}>
         <h2 className={eks.headingLg}>Devtools</h2>
         <ul className={eks.list}>
-          <li className={eks.listItem}>
-            <Link href="/devTools/dateConverter" as={`/devTools/dateConverter`}>
-              <a href={`/devTools/dateConverter`}>Date Converter</a>
-            </Link>
-            <br />
-          </li>
+          {allDevToolsData.map((devTool) => {
+            return (
+              <li key={devTool.id} className={eks.listItem}>
+                <Link href={`/devTools/${devTool.id}`} as={`/devTools/${devTool.id}`}>
+                  <a href={`/devTools/${devTool.id}`}>{devTool.title}</a>
+                </Link>
+                <br />
+              </li>
+            );
+          })}
         </ul>
       </section>
       <section className={`${eks.headingMd} ${eks.padding1px} ${eks.fadeIn}`}>
@@ -65,14 +74,16 @@ export default function Home({
         </ul>
       </section>
     </Layout>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getAllPostsSortedData()
+  const allPostsData = getAllPostsSortedData();
+  const allDevToolsData = getAllDevtoolsData();
   return {
     props: {
       allPostsData,
+      allDevToolsData,
     },
-  }
-}
+  };
+};

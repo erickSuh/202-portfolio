@@ -1,19 +1,9 @@
-import Head from 'next/head'
-import { parseISO, format } from 'date-fns'
-import eks from '../../../styles/eks.module.scss'
-import Layout from '../../../components/layout'
+import Head from 'next/head';
+import { parseISO, format } from 'date-fns';
+import eks from '../../../styles/eks.module.scss';
+import Layout from '../../../components/layout';
 
-export default function DevTools({
-  postData,
-}: {
-  postData: {
-    title: string
-    date: string
-    author: string
-    categories: string
-    contentHtml: string
-  }
-}) {
+export default function DateConverter(): JSX.Element {
   return (
     <Layout>
       <Head>
@@ -30,5 +20,5 @@ export default function DevTools({
         <div>Conversor de data</div>
       </article>
     </Layout>
-  )
+  );
 }
