@@ -1,7 +1,7 @@
-import React from 'react'
-import Link from 'next/link'
-import styles from '../../styles/layout.module.scss'
-import eks from '../../styles/eks.module.scss'
+import React from 'react';
+import Link from 'next/link';
+import styles from '../../styles/layout.module.scss';
+import eks from '../../styles/eks.module.scss';
 
 const Header: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const Header: React.FC = () => {
         </a>
       </Link>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

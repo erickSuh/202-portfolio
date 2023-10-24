@@ -1,11 +1,11 @@
 /* eslint-disable react/react-in-jsx-scope */
-import Head from 'next/head'
-import styles from '../styles/layout.module.scss'
-import eks from '../styles/eks.module.scss'
-import Link from 'next/link'
-import Header from './Header'
+import Head from 'next/head';
+import styles from '../styles/layout.module.scss';
+import eks from '../styles/eks.module.scss';
+import Link from 'next/link';
+import Header from './Header';
 
-export const siteTitle = 'Érick Kenji Sugahara'
+export const siteTitle = 'Érick Kenji Sugahara';
 
 export default function Layout({ children, home }: { children: React.ReactNode; home?: boolean }) {
   return (
@@ -36,5 +36,5 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
         )}
       </div>
     </>
-  )
+  );
 }
