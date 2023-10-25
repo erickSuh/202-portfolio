@@ -1,5 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
-import Head from 'next/head';
 import styles from '../styles/layout.module.scss';
 import eks from '../styles/eks.module.scss';
 import Link from 'next/link';
@@ -12,7 +10,7 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
     <>
       <Header />
       <div className={`${styles.container}  ${eks.fadeIn}`}>
-        <Head>
+        {/* <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta name="description" content="Learn how to build a personal website using Next.js" />
           <meta
@@ -27,7 +25,7 @@ export default function Layout({ children, home }: { children: React.ReactNode; 
             name="google-site-verification"
             content="_-_hPcrlMzsjEjZzrD5tJfgy_fG6h0VO9UniWK-nW5Q"
           />
-        </Head>
+        </Head> */}
         <main>{children}</main>
         {!home && (
           <div className={styles.backToHome}>

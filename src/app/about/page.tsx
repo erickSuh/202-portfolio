@@ -10,7 +10,14 @@ export default function About(): JSX.Element {
       </Head>
       <article>
         <h1 className={eks.headingXl}>About Me</h1>
-        <h2 className={eks.headingXl}>ME</h2>
+        <div className={eks.profilePic}>
+          <img
+            className={eks.profilePic}
+            alt="profile Érick Kenji Sugahara"
+            src="/images/profile.jpg"
+          />
+        </div>
+        <h2 className={eks.headingXl}>Érick Kenji Sugahara</h2>
         <p className={eks.lightText}>
           Hi, my name is Érick Kenji Sugahara I&apos;m brazilian and a mobile developer. I love
           programming, i&apos;m doing this about six years, today it&apos;s my way to earn some

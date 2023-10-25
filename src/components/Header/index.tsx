@@ -6,10 +6,8 @@ import eks from '../../styles/eks.module.scss';
 const Header: React.FC = () => {
   return (
     <header className={eks.header}>
-      <Link href="/">
-        <a href="/" className={styles.headerLogo}>
-          HOME
-        </a>
+      <Link className={styles.headerLogo} href="/">
+        HOME
       </Link>
     </header>
   );

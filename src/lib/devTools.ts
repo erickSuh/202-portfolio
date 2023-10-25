@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { convertCamelCaseToWords } from './utils';
 
-const devToolsDirectory = path.join(process.cwd(), 'pages', 'devTools');
+const devToolsDirectory = path.join(process.cwd(), 'src', 'app', 'devTools');
 
 export function getAllDevtoolsData(): { id: string; title: string }[] {
   const fileNames = fs.readdirSync(devToolsDirectory);

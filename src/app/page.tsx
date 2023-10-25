@@ -1,35 +1,19 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import Head from 'next/head';
+// import Head from 'next/head';
 import Link from 'next/link';
-import { GetStaticProps } from 'next';
 import Layout, { siteTitle } from '../components/layout';
 import Date from '../components/date';
 import { getAllPostsSortedData } from '../lib/posts';
 import eks from '../styles/eks.module.scss';
 import { getAllDevtoolsData } from '../lib/devTools';
-import { Post } from '../lib/models';
 
-export default function Home({
-  allPostsData,
-  allDevToolsData,
-}: {
-  allPostsData: Post[];
-  allDevToolsData: { id: string; title: string }[];
-}) {
+export default function Home() {
+  const allPostsData = getAllPostsSortedData();
+  const allDevToolsData = getAllDevtoolsData();
+
   return (
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
       <section className={`${eks.headingMd} ${eks.fadeIn}`}>
         <h1>Welcome to my developer space</h1>
-        <div className={eks.profilePic}>
-          <img
-            className={eks.profilePic}
-            alt="profile Érick Kenji Sugahara"
-            src="/images/profile.jpg"
-          />
-        </div>
         <p>
           (This website is developed in <a href="https://nextjs.org/">Next.js</a>.)
         </p>
@@ -37,7 +21,7 @@ export default function Home({
       <section className={`${eks.headingMd} ${eks.padding1px} ${eks.fadeIn}`}>
         <h2 className={eks.headingLg}>
           <Link href="/about" as={`/about`}>
-            <a href={`/about`}>About Me</a>
+            About Me
           </Link>
         </h2>
       </section>
@@ -48,7 +32,7 @@ export default function Home({
             return (
               <li key={devTool.id} className={eks.listItem}>
                 <Link href={`/devTools/${devTool.id}`} as={`/devTools/${devTool.id}`}>
-                  <a href={`/devTools/${devTool.id}`}>{devTool.title}</a>
+                  {devTool.title}
                 </Link>
                 <br />
               </li>
@@ -62,7 +46,7 @@ export default function Home({
           {allPostsData.map(({ id, date, title, author, categories }) => (
             <li className={eks.listItem} key={id}>
               <Link href="/posts/[id]" as={`/posts/${id}`}>
-                <a href={`/posts/${id}`}>{title}</a>
+                {title}
               </Link>
               <br />
               <small className={eks.lightText}>
@@ -76,14 +60,3 @@ export default function Home({
     </Layout>
   );
 }
-
-export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getAllPostsSortedData();
-  const allDevToolsData = getAllDevtoolsData();
-  return {
-    props: {
-      allPostsData,
-      allDevToolsData,
-    },
-  };
-};

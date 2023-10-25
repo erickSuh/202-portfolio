@@ -1,3 +1,5 @@
+"use client"
+
 import Head from 'next/head';
 import { parseISO, format } from 'date-fns';
 import eks from '../../../styles/eks.module.scss';

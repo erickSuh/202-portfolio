@@ -1,3 +1,5 @@
+"use client"
+
 import Head from 'next/head';
 import eks from '../../../styles/eks.module.scss';
 import Layout from '../../../components/layout';
