@@ -19,12 +19,13 @@ export default function About(): JSX.Element {
         </div>
         <h2 className={eks.headingXl}>Érick Kenji Sugahara</h2>
         <p className={eks.lightText}>
-          Hi, my name is Érick Kenji Sugahara I&apos;m brazilian and a mobile developer. I love
-          programming, i&apos;m doing this about six years, today it&apos;s my way to earn some
-          money.
+          Hi, my name is Érick Kenji Sugahara I&apos;m brazilian and a mobile
+          developer. I love programming, i&apos;m doing this about six years,
+          today it&apos;s my way to earn some money.
         </p>
         <p className={eks.lightText}>
-          My hobbies is play games, develop useless applications and hang out with my family.
+          My hobbies is play games, develop useless applications and hang out
+          with my family.
         </p>
         <h2 className={eks.headingXl}>Some of my technical skills</h2>
         <ul>

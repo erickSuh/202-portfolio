@@ -13,13 +13,18 @@ export function convertCamelCaseToWords(input: string): string {
 }
 
 export function generateRandomCPF(format = false): string {
-  const cpfBase = Array.from({ length: 9 }, () => Math.floor(Math.random() * 10)).join('');
+  const cpfBase = Array.from({ length: 9 }, () =>
+    Math.floor(Math.random() * 10),
+  ).join('');
   const firstDigit = calculateCPFValidatorDigit(cpfBase);
   const secondDigit = calculateCPFValidatorDigit(cpfBase + firstDigit);
   const cpf = `${cpfBase}${firstDigit}${secondDigit}`;
 
   if (format) {
-    return `${cpf.slice(0, 3)}.${cpf.slice(3, 6)}.${cpf.slice(6, 9)}-${cpf.slice(9)}`;
+    return `${cpf.slice(0, 3)}.${cpf.slice(3, 6)}.${cpf.slice(
+      6,
+      9,
+    )}-${cpf.slice(9)}`;
   } else {
     return cpf;
   }
@@ -68,8 +73,10 @@ export function generateRandomName(): string {
     'Martins',
   ];
 
-  const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
-  const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+  const randomFirstName =
+    firstNames[Math.floor(Math.random() * firstNames.length)];
+  const randomLastName =
+    lastNames[Math.floor(Math.random() * lastNames.length)];
 
   return `${randomFirstName} ${randomLastName}`;
 }

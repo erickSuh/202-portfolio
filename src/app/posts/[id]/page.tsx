@@ -6,7 +6,7 @@ import eks from '../../../styles/eks.module.scss';
 
 export default async function Post({ params }: { params: { id: string } }) {
   const postData = await getPostData(params.id as string);
-  
+
   return (
     <Layout>
       <Head>
@@ -20,7 +20,9 @@ export default async function Post({ params }: { params: { id: string } }) {
           <span>{` - by: ${postData.author}`}</span>
           {postData.categories && <span>{` -  ${postData.categories}`}</span>}
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml as string }} />
+        <div
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml as string }}
+        />
       </article>
     </Layout>
   );

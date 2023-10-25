@@ -5,7 +5,13 @@ import Header from './Header';
 
 export const siteTitle = 'Érick Kenji Sugahara';
 
-export default function Layout({ children, home }: { children: React.ReactNode; home?: boolean }) {
+export default function Layout({
+  children,
+  home,
+}: {
+  children: React.ReactNode;
+  home?: boolean;
+}) {
   return (
     <>
       <Header />
