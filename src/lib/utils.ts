@@ -12,6 +12,30 @@ export function convertCamelCaseToWords(input: string): string {
   return words;
 }
 
+export function convertWorldsToCamelCase(text: string): string {
+  // Remove caracteres especiais e quebras de linha
+  text = text.replace(/[^a-zA-Z0-9]+/g, ' ').trim();
+
+  // Divide o texto em palavras
+  const words = text.split(' ');
+
+  // Converte as palavras para camel case
+  const camelCaseWords = words.map((word, index) => {
+    if (index === 0) {
+      // A primeira palavra permanece inalterada
+      return word.toLowerCase();
+    } else {
+      // As palavras subsequentes têm a primeira letra em maiúscula
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    }
+  });
+
+  // Junta as palavras em uma única string
+  const camelCaseText = camelCaseWords.join('');
+
+  return camelCaseText;
+}
+
 export function generateRandomCPF(format = false): string {
   const cpfBase = Array.from({ length: 9 }, () =>
     Math.floor(Math.random() * 10),
