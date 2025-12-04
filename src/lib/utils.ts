@@ -104,3 +104,60 @@ export function generateRandomName(): string {
 
   return `${randomFirstName} ${randomLastName}`;
 }
+
+export function convertDateFormat(
+  inputDate: string,
+  fromFormat: string,
+  toFormat: string,
+): string {
+  if (!inputDate) return '';
+
+  let date: Date;
+
+  // Parse the input date based on fromFormat
+  if (fromFormat === 'YYYY-MM-DD') {
+    date = new Date(inputDate + 'T00:00:00');
+  } else if (fromFormat === 'DD/MM/YYYY') {
+    const [day, month, year] = inputDate.split('/');
+    date = new Date(`${year}-${month}-${day}T00:00:00`);
+  } else if (fromFormat === 'MM/DD/YYYY') {
+    const [month, day, year] = inputDate.split('/');
+    date = new Date(`${year}-${month}-${day}T00:00:00`);
+  } else if (fromFormat === 'timestamp') {
+    date = new Date(parseInt(inputDate));
+  } else {
+    return '';
+  }
+
+  // Check if date is valid
+  if (isNaN(date.getTime())) {
+    return 'Data inválida';
+  }
+
+  // Format the output date based on toFormat
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+  const seconds = String(date.getSeconds()).padStart(2, '0');
+
+  switch (toFormat) {
+    case 'YYYY-MM-DD':
+      return `${year}-${month}-${day}`;
+    case 'DD/MM/YYYY':
+      return `${day}/${month}/${year}`;
+    case 'MM/DD/YYYY':
+      return `${month}/${day}/${year}`;
+    case 'YYYY-MM-DD HH:mm:ss':
+      return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    case 'DD/MM/YYYY HH:mm:ss':
+      return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+    case 'timestamp':
+      return date.getTime().toString();
+    case 'ISO':
+      return date.toISOString();
+    default:
+      return '';
+  }
+}

@@ -35,3 +35,56 @@ img {
   max-width: 100%;
   display: block;
 }
+
+label {
+  margin-right: 0.5rem;
+}
+
+/* Global form controls */
+input,
+textarea,
+select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #222;
+  margin: 0.25rem 0.5rem 0.25rem 0;
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background-color: #f7f7f7;
+  color: #888;
+  border-color: #e8e8e8;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  transform: scale(1.05);
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #00cfba;
+  border-radius: 8px;
+  background-color: #00cfba;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: #00a896;
+  border-color: #00a896;
+}
+
+button:active {
+  opacity: 0.9;
+}
