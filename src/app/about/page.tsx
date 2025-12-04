@@ -2,7 +2,7 @@ import Head from 'next/head';
 import eks from '../../styles/eks.module.scss';
 import Layout from '../../components/layout';
 
-export default function About(): JSX.Element {
+export default function About() {
   return (
     <Layout>
       <Head>

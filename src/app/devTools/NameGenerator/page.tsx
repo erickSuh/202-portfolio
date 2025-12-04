@@ -7,7 +7,7 @@ import { ChangeEvent, useState } from 'react';
 import { copyToClipboard } from '../../../lib/utils';
 import { generateRandomName } from '../../../lib/utils';
 
-export default function NameGenerator(): JSX.Element {
+export default function NameGenerator() {
   const [name, setName] = useState(generateRandomName());
   const [makeCopy, setMakeCopy] = useState(true);
 

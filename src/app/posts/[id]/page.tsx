@@ -4,8 +4,13 @@ import Head from 'next/head';
 import Date from '../../../components/date';
 import eks from '../../../styles/eks.module.scss';
 
-export default async function Post({ params }: { params: { id: string } }) {
-  const postData = await getPostData(params.id as string);
+export default async function Post({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const postData = await getPostData(id as string);
 
   return (
     <Layout>

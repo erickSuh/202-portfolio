@@ -16,7 +16,7 @@ const DATE_FORMATS = [
   { value: 'ISO', label: 'ISO String' },
 ];
 
-export default function DateConverter(): JSX.Element {
+export default function DateConverter() {
   const [inputDate, setInputDate] = useState('');
   const [fromFormat, setFromFormat] = useState('DD/MM/YYYY');
   const [toFormat, setToFormat] = useState('YYYY-MM-DD');

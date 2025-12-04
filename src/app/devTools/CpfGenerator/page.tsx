@@ -6,7 +6,7 @@ import Layout from '../../../components/layout';
 import { ChangeEvent, useState } from 'react';
 import { copyToClipboard, generateRandomCPF } from '../../../lib/utils';
 
-export default function CpfGenerator(): JSX.Element {
+export default function CpfGenerator() {
   const [cpf, setCpf] = useState(generateRandomCPF(true));
   const [makeCopy, setMakeCopy] = useState(true);
   const [formatted, setFormatted] = useState(true);

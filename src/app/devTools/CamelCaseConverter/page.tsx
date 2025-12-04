@@ -12,7 +12,7 @@ import {
 
 const SPLIT_ID = 'rad-split-camel-case';
 
-export default function CamelCaseConverter(): JSX.Element {
+export default function CamelCaseConverter() {
   const [text, setText] = useState('');
   const [resultText, setResultText] = useState('');
   const [makeCopy, setMakeCopy] = useState(true);
