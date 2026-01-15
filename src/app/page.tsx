@@ -21,7 +21,7 @@ export default function Home() {
       </section>
       <section className={`${eks.headingMd} ${eks.padding1px} ${eks.fadeIn}`}>
         <h2 className={eks.headingLg}>
-          <Link href="/about" as={`/about`}>
+          <Link href="/about" as={'/about'}>
             About Me
           </Link>
         </h2>

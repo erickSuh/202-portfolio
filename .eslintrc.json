@@ -36,6 +36,7 @@
         "usePrettierrc": true
       }
     ],
+    "quotes": ["error", "single", { "avoidEscape": true }],
     "semi": ["error", "always"],
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
